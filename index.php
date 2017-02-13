@@ -83,10 +83,10 @@ switch ($action)
         $title = "Home";
         $content = '<h2>Navigation</h2>';
         $content .= "<ul>\n";
-        $content .= '<li><a href="subscriber/index.php">Home</a></li>';
-        $content .= '<li><a href="subscriber/index.php?action=insertCustomer">Abonnent einfügen</a></li>';
-        $content .= '<li><a href="subscriber/index.php?action=showCustomers">Abonnenten anzeigen</a></li>';
-        $content .= '<li><a href="subscriber/index.php?action=setupDB">Setup (Datenbanktabellen anlegen)</a></li>';
+        $content .= '<li><a href="index.php">Home</a></li>';
+        $content .= '<li><a href="index.php?action=insertCustomer">Abonnent einfügen</a></li>';
+        $content .= '<li><a href="index.php?action=showCustomers">Abonnenten anzeigen</a></li>';
+        $content .= '<li><a href="index.php?action=setupDB">Setup (Datenbanktabellen anlegen)</a></li>';
         $content .= "</ul>";
 }
 
