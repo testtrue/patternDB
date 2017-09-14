@@ -1,6 +1,6 @@
-# subscriber
-A sample project for LF6.
-A website (PHP+DB-Tables).
+# PatternDB
+A website showing the most common design patterns stored in a DB
+PHP + DB-tables
 
 ## Installation
 1. clone/download files
