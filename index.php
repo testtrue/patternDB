@@ -7,7 +7,7 @@
 defined('BASEPATH') or define('BASEPATH', realpath(dirname(__FILE__)));
 require_once (BASEPATH . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php');
 require_once (BASEPATH . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'config.php');
-$page = new Page(); // instatiate the page
+$page = new Page(''); // instatiate the page
 defined('BASEURL') or define('BASEURL', $page->getBaseUrl());
 
 /* Set some default values. */

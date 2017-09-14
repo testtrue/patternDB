@@ -15,7 +15,7 @@ class Setup {
 
     /** createTablesFromFile
      * 
-     * @param type $sqlFile
+     * @param string $sqlFile
      */
     public function createTablesFromFile($sqlFile)
     {

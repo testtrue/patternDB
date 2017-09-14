@@ -48,12 +48,14 @@ flycheck_*.el
 nbproject/private/
 build/
 nbbuild/
-dist/
 nbdist/
 .nb-gradle/
 
 # Notepad++ backups #
 *.bak
+
+# Phpstorm
+.idea/
 
 ################
 # User defined #

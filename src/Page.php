@@ -27,8 +27,8 @@ class Page {
     public function getBaseUrl()
     {
         return dirname(sprintf(
-                    "%s://%s%s", isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http', $_SERVER['SERVER_NAME'], $_SERVER['REQUEST_URI'])
-            ) . DIRECTORY_SEPARATOR;
+                    "%s://%s", isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http', $_SERVER['SERVER_NAME'])
+            ) . $_SERVER['REQUEST_URI'];
     }
 
     /** parseTemplate
@@ -56,7 +56,7 @@ class Page {
     /** debug
      * Prints an entire HTML-error-page using "die()" for debugging purposes
      * @param String $string A string to show in an errorpage.
-     * @param type $templateFilename
+     * @param string $templateFilename
      */
     function debug($string, $templateFilename = "templates/index.html")
     {
