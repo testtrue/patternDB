@@ -1,3 +1,7 @@
+body {
+    padding-top: 52px;
+}
+
 main {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -6,4 +10,8 @@ main {
 img {
     max-width: 100%;
     height: auto;
+}
+
+.mb {
+    margin-bottom: 25px;
 }
