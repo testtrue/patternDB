@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Erstellungszeit: 21. Sep 2017 um 10:30
--- Server-Version: 10.1.8-MariaDB
--- PHP-Version: 5.6.14
+-- Host: localhost:3306
+-- Erstellungszeit: 26. Sep 2017 um 08:39
+-- Server-Version: 5.6.34-log
+-- PHP-Version: 7.1.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,57 +21,36 @@ SET time_zone = "+00:00";
 --
 -- Datenbank: `design_pattern`
 --
-CREATE DATABASE IF NOT EXISTS `design_pattern` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `design_pattern`;
 
 -- --------------------------------------------------------
 
 --
 -- Tabellenstruktur für Tabelle `pattern`
 --
--- Erstellt am: 21. Sep 2017 um 08:28
---
 
-DROP TABLE IF EXISTS `pattern`;
 CREATE TABLE `pattern` (
   `ID` int(11) NOT NULL,
   `type_ID` int(11) NOT NULL,
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- RELATIONEN DER TABELLE `pattern`:
---   `type_ID`
---       `pattern_type` -> `ID`
---
-
 -- --------------------------------------------------------
 
 --
 -- Tabellenstruktur für Tabelle `pattern_type`
 --
--- Erstellt am: 21. Sep 2017 um 07:45
---
 
-DROP TABLE IF EXISTS `pattern_type`;
 CREATE TABLE `pattern_type` (
   `ID` int(11) NOT NULL,
   `type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- RELATIONEN DER TABELLE `pattern_type`:
---
 
 -- --------------------------------------------------------
 
 --
 -- Tabellenstruktur für Tabelle `picture`
 --
--- Erstellt am: 21. Sep 2017 um 07:54
---
 
-DROP TABLE IF EXISTS `picture`;
 CREATE TABLE `picture` (
   `ID` int(11) NOT NULL,
   `pattern_ID` int(11) NOT NULL,
@@ -78,41 +59,23 @@ CREATE TABLE `picture` (
   `filename` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- RELATIONEN DER TABELLE `picture`:
---   `pattern_ID`
---       `pattern` -> `ID`
---   `picture_type_ID`
---       `picture_type` -> `ID`
---
-
 -- --------------------------------------------------------
 
 --
 -- Tabellenstruktur für Tabelle `picture_type`
 --
--- Erstellt am: 21. Sep 2017 um 07:52
---
 
-DROP TABLE IF EXISTS `picture_type`;
 CREATE TABLE `picture_type` (
   `ID` int(11) NOT NULL,
   `type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- RELATIONEN DER TABELLE `picture_type`:
---
 
 -- --------------------------------------------------------
 
 --
 -- Tabellenstruktur für Tabelle `text`
 --
--- Erstellt am: 21. Sep 2017 um 08:04
---
 
-DROP TABLE IF EXISTS `text`;
 CREATE TABLE `text` (
   `ID` int(11) NOT NULL,
   `pattern_ID` int(11) NOT NULL,
@@ -120,31 +83,16 @@ CREATE TABLE `text` (
   `text` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- RELATIONEN DER TABELLE `text`:
---   `pattern_ID`
---       `pattern` -> `ID`
---   `type_ID`
---       `text_type` -> `ID`
---
-
 -- --------------------------------------------------------
 
 --
 -- Tabellenstruktur für Tabelle `text_type`
 --
--- Erstellt am: 21. Sep 2017 um 08:05
---
 
-DROP TABLE IF EXISTS `text_type`;
 CREATE TABLE `text_type` (
   `ID` int(11) NOT NULL,
   `type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- RELATIONEN DER TABELLE `text_type`:
---
 
 --
 -- Indizes der exportierten Tabellen
@@ -219,7 +167,8 @@ ALTER TABLE `text`
 -- AUTO_INCREMENT für Tabelle `text_type`
 --
 ALTER TABLE `text_type`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
