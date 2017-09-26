@@ -19,6 +19,9 @@ switch ($action) {
     case "show":
         $content .= file_get_contents(BASEPATH . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'Show.html');
         break;
+	case "startpage":
+        $content .= file_get_contents(BASEPATH . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'startpage.html');
+        break;
     default:
         $content .= "Hier folgt die Startseite...";
 }

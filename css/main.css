@@ -1,5 +1,6 @@
 body {
     padding-top: 52px;
+	background-color: rgba(51, 102, 255, 0.4);
 }
 
 main {
@@ -14,4 +15,10 @@ img {
 
 .mb {
     margin-bottom: 25px;
+}
+
+.content-container {
+	background-color: rgba(0, 0, 10, 0.1);
+	padding-top: 15px;
+	padding-bottom: 15px;
 }
