@@ -14,7 +14,7 @@
 		private static $conn;
 		
 		//The Constructor creates the activ connection to the Database and tests the connection, if it fails it will output a error message.
-		function __construct( $url, $user, $pw, $db ) {
+		public function __construct( $url, $user, $pw, $db ) {
 			$this->url = $url;
 			$this->user = $user;
 			$this->pw = $pw;
@@ -36,17 +36,17 @@
 		}
 		
 		//This function will be called by the Garbagecollector and will close the connection.
-		function __destruct() {
+		public function __destruct() {
 			$this->closeConnection();
 		}
 		
 		//This function will execute a SQL-Query and return the result.
-		function executeQuery( $query ) {
+		public function executeQuery( $query ) {
 			return $this->conn->query( mysql_real_escape_string($query) );
 		}
 		
 		//This function closes the Connection.
-		function closeConnection() {
+		public function closeConnection() {
 			$this->conn->close();
 		}
 		
