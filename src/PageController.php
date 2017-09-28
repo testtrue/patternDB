@@ -1,4 +1,4 @@
-<?php.
+<?php
 // GET-Parametername for patterns
 define('PATTERNPARAMETERNAME','pattern');
 // Placeholder in the template for certain content
@@ -33,28 +33,27 @@ class PageController{
 	 */
 	public function doAction($action){
 		$content = "";
+		$pagecontent = [];
 		switch ($action) {
 			case "show":
-				$pageContent = Array();
 				$mapper = new PropertyMapper();
-				$pattern = $mapper->mapProperties("Pattern",$pattern);
-				$pageContent = Array (
+				$pattern = $mapper->mapProperties("Pattern",$this->pattern);
+				$pagecontent = [
 					PATTERNNAME => $pattern->getName($this->pattern),
 					IMGFILENAME => $pattern->getPicture()->getFileName($this->pattern),
-					CAPTION => $pattern->getPicture->getCaption($this->pattern),
+					CAPTION => $pattern->getPicture()->getCaption($this->pattern),
 					SHORTTEXT => $pattern->getShortDescription($this->pattern),
-					LONGTEXT => $pattern->getLongDescrfiption($this->pattern),
-					SIMILARPATTERNS => $pattern->getSimilarPatterns($this->pattern)
-				);				
+					LONGTEXT => $pattern->getLongDescription($this->pattern)
+					//SIMILARPATTERNS => $pattern->getSimilarPatterns($this->pattern)
+				];
 			break;
 			case "impressum":
-				$pageContent = Array();
+				
 			break;
 			default:
-				$action = "index";
-				$content .= "Hier folgt die Startseite...";
+				$action = "startpage";
 		}
-		$content .= $this->page->parseTemplate('templates' . DIRECTORY_SEPARATOR . $action . '.html',$pageContent);
+		$content .= $this->page->parseTemplate('templates' . DIRECTORY_SEPARATOR . $action . '.html',$pagecontent);
 		$title = "Title";
 		return [
 				'baseUrl' => BASEURL,

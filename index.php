@@ -45,4 +45,4 @@ switch ($action) {
  * To display we content, we merely have to echo it.
  */
 //$content = $page->parseTemplate('templates/index.html', $pageDataArray);
-echo $controller->getContent();
+echo $controller->getContent($controller->doAction($action));
