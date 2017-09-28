@@ -1,4 +1,4 @@
-<?php
+<?php.
 // GET-Parametername for patterns
 define('PATTERNPARAMETERNAME','pattern');
 // Placeholder in the template for certain content
@@ -9,52 +9,50 @@ define('SHORTTEXT','shorttext');
 define('LONGTEXT','longtext');
 define('SIMILARPATTERNS','similarpatterns');
 // End of placeholder
-
+/**
+ * @author Boas Lehrke
+ * Date: 28.09.2017
+ */
 class PageController{
-	private $mapper = null;
 	private $page = null;
 	private $pattern = "";
 	private $mainFrame = "templates/index.html";
-	private $templateName;
-	private $content = "";
 	
+	/**
+	 * Constructor
+	 */
 	public function __construct(){
 		$this->page = new Page('');
 		$this->pattern = isset($_GET[PATTERNPARAMETERNAME])? $_GET[PATTERNPARAMETERNAME]:"";
 	}
 	
+	/**
+	 * 
+	 */
 	public function doAction($action){
 		$content = "";
 		switch ($action) {
 			case "show":
-				//$pagecontroller = new Controller();
 				$pageContent = Array();
-				/*$pageContent = Array (
-					PATTERNNAME => $mapper->getPatternName($this->pattern),
-					IMGFILENAME => $mapper->getImgFileName($this->pattern),
-					CAPTION => $mapper->getCaption($this->pattern),
-					SHORTTEXT => $mapper->getShortText($this->pattern),
-					LONGTEXT => $mapper->getLongText($this->pattern),
-					SIMILARPATTERNS => $mapper->getSimilarPatterns($this->pattern)
-				);*
-				/*$pageContent = Array (
-					PATTERNNAME => 'Decorator',
-					IMGFILENAME => 'images/patterns/decorator.png',
-					CAPTION => 'Abb. Decorator',
-					SHORTTEXT => 'Kurztext',
-					LONGTEXT => 'Langtext',
-					SIMILARPATTERNS => 'aehnliche Patterns'
-				);*/
-				
-				$content .= $this->page->parseTemplate('templates' . DIRECTORY_SEPARATOR . $action . '.html',$pageContent);
+				$mapper = new PropertyMapper();
+				$pattern = $mapper->mapProperties("Pattern",$pattern);
+				$pageContent = Array (
+					PATTERNNAME => $pattern->getPatternName($this->pattern),
+					IMGFILENAME => $pattern->getImgFileName($this->pattern),
+					CAPTION => $pattern->getCaption($this->pattern),
+					SHORTTEXT => $pattern->getShortText($this->pattern),
+					LONGTEXT => $pattern->getLongText($this->pattern),
+					SIMILARPATTERNS => $pattern->getSimilarPatterns($this->pattern)
+				);				
 			break;
 			case "impressum":
 				$pageContent = Array();
-				$content .= $this->page->parseTemplate('templates' . DIRECTORY_SEPARATOR . $action . '.html',$pageContent);
 			break;
 			default:
+				$action = "index";
 				$content .= "Hier folgt die Startseite...";
 		}
+		$content .= $this->page->parseTemplate('templates' . DIRECTORY_SEPARATOR . $action . '.html',$pageContent);
 		$title = "Title";
 		return [
 				'baseUrl' => BASEURL,
@@ -64,10 +62,17 @@ class PageController{
 				];
 	}
 	
+	/*
+	
+	*/
 	public function getContent($pageContent){
 		return $this->page->parseTemplate($this->mainFrame,$pageContent);
 	}
 	
+	/*
+	 * @Return String
+	 * Return baseurl 
+	 */
 	public function getBaseUrl(){
 		return $this->page->getBaseUrl();
 	}
