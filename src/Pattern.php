@@ -13,9 +13,9 @@ class Pattern
     private $name;
 
     /**
-     * @var PatternType
+     * @var Patterntype
      */
-    private $patternType;
+    private $patterntype;
 
     /**
      * @var string
@@ -35,7 +35,7 @@ class Pattern
     /**
      * @var string
      */
-    private $codeExample;
+    private $code;
 
     /**
      * @return int
@@ -62,19 +62,19 @@ class Pattern
     }
 
     /**
-     * @return PatternType
+     * @return Patterntype
      */
-    public function getPatternType(): PatternType
+    public function getPatterntype(): Patterntype
     {
-        return $this->patternType;
+        return $this->patterntype;
     }
 
     /**
-     * @param PatternType $patternType
+     * @param Patterntype $patterntype
      */
-    public function setPatternType(PatternType $patternType)
+    public function setPatterntype(Patterntype $patterntype)
     {
-        $this->patternType = $patternType;
+        $this->patterntype = $patterntype;
     }
 
     /**
@@ -128,16 +128,24 @@ class Pattern
     /**
      * @return string
      */
-    public function getCodeExample(): string
+    public function getCode(): string
     {
-        return $this->codeExample;
+        return $this->code;
     }
 
     /**
-     * @param string $codeExample
+     * @param string $code
      */
-    public function setCodeExample(string $codeExample)
+    public function setCode(string $code)
     {
-        $this->codeExample = $codeExample;
+        $this->code = $code;
+    }
+
+    /**
+     * @param int $idPattern
+     */
+    public function setIdPattern(int $idPattern)
+    {
+        $this->idPattern = $idPattern;
     }
 }
