@@ -31,6 +31,7 @@ $pageDataArray = [
     'baseUrl' => BASEURL,
     'title' => $title,
     'content' => $content,
+    'year' => date('Y')
 ];
 
 /*
