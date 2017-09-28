@@ -3,20 +3,20 @@ CREATE DATABASE patterndb
   CHARACTER SET = 'utf8'
   COLLATE = 'utf8_general_ci';
 
-CREATE TABLE IF NOT EXISTS patterntype (
+CREATE TABLE IF NOT EXISTS patterndb.patterntype (
   id_patterntype INT UNSIGNED          AUTO_INCREMENT PRIMARY KEY,
   name           VARCHAR(255) NOT NULL DEFAULT ''
 )
   ENGINE = InnoDB, AUTO_INCREMENT = 1;
 
-CREATE TABLE IF NOT EXISTS picture (
+CREATE TABLE IF NOT EXISTS patterndb.picture (
   id_picture INT UNSIGNED          AUTO_INCREMENT PRIMARY KEY,
   filename   VARCHAR(255) NOT NULL DEFAULT '',
   caption    VARCHAR(255) NOT NULL DEFAULT ''
 )
   ENGINE = InnoDB, AUTO_INCREMENT = 1;
 
-CREATE TABLE IF NOT EXISTS pattern (
+CREATE TABLE IF NOT EXISTS patterndb.pattern (
   id_pattern       INT UNSIGNED          AUTO_INCREMENT PRIMARY KEY,
   name             VARCHAR(255) NOT NULL DEFAULT '',
   short_description TEXT         NOT NULL,
