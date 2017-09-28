@@ -23,7 +23,7 @@ switch ($action) {
         $content .= file_get_contents(BASEPATH . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'impressum.html');
         break;
     default:
-        $content .= "Hier folgt die Startseite...";
+        $content .= file_get_contents(BASEPATH . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'startpage.html');
 }
 
 /* * *************************

@@ -13,7 +13,13 @@
 		//The conn variable holds the activ connection to the Database.
 		private static $conn;
 		
-		//The Constructor creates the activ connection to the Database and tests the connection, if it fails it will output a error message.
+		/**
+		* The Constructor creates the activ connection to the Database and tests the connection, if it fails it will output a error message.
+		* @param url URL to the Database.
+		* @param user User to access the database.
+		* @param pw Password for the DB-User.
+		* @param db Name of the Database.
+		**/
 		public function __construct( $url, $user, $pw, $db ) {
 			$this->url = $url;
 			$this->user = $user;
@@ -27,7 +33,10 @@
 			}
 		}
 		
-		//This function returns the instance of the DBConnector, if there is no activ instance it will create a new one.
+		/**
+		* This function returns the instance of the DBConnector, if there is no activ instance it will create a new one.
+		* @return Returns the instance.
+		**/
 		public static function getInstance() {
 			if( self::$conn === null ) {
 				self::$conn = new self;
@@ -40,7 +49,11 @@
 			$this->closeConnection();
 		}
 		
-		//This function will execute a SQL-Query and return the result.
+		/**
+		* This function will execute a SQL-Query and return the result.
+		* @param query The Query that needs to be executed at the database.
+		* @return returns the result of the database.
+		**/
 		public function executeQuery( $query ) {
 			return $this->conn->query( mysql_real_escape_string($query) );
 		}
