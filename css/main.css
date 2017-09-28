@@ -10,6 +10,7 @@ main {
 
 img {
     max-width: 100%;
+	width: 100%;
     height: auto;
 }
 
@@ -17,8 +18,34 @@ img {
     margin-bottom: 25px;
 }
 
+@media (min-width: 768px) {
+	.mediaLeft {
+	margin-right: 2px;
+	}
+	
+	.mediaRight {
+	margin-left: 2px;
+	}
+	
+	.mediaRight:hover {
+	margin: -15px;
+	}
+	
+	.mediaLeft:hover {
+	margin: -15px;
+	}
+}
+
 .content-container {
 	background-color: rgba(0, 0, 10, 0.1);
 	padding-top: 15px;
 	padding-bottom: 15px;
+	margin-bottom: 20px;
+}
+
+
+
+.description {
+	height: 150px;
+	overflow: hidden;
 }
