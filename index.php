@@ -44,6 +44,3 @@ $pageDataArray = [
  */
 $content = $page->parseTemplate('templates/index.html', $pageDataArray);
 echo $content;
-
-$pMapper = new PropertyMapper();
-var_dump($pMapper->mapProperties("Pattern", 1));
