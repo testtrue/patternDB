@@ -19,8 +19,8 @@ CREATE TABLE IF NOT EXISTS picture (
 CREATE TABLE IF NOT EXISTS pattern (
   id_pattern       INT UNSIGNED          AUTO_INCREMENT PRIMARY KEY,
   name             VARCHAR(255) NOT NULL DEFAULT '',
-  shortDescription TEXT         NOT NULL,
-  longDescription  TEXT         NOT NULL,
+  short_description TEXT         NOT NULL,
+  long_description  TEXT         NOT NULL,
   code             TEXT         NOT NULL,
   id_patternType   INT UNSIGNED NOT NULL DEFAULT 0,
   id_picture       INT UNSIGNED NOT NULL DEFAULT 0,
