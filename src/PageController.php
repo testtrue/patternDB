@@ -27,7 +27,9 @@ class PageController{
 	}
 	
 	/**
-	 * 
+	 * Does a specific action, predefined by the action-parameter.
+	 * Returns the parse site
+	 * @return string
 	 */
 	public function doAction($action){
 		$content = "";
@@ -37,11 +39,11 @@ class PageController{
 				$mapper = new PropertyMapper();
 				$pattern = $mapper->mapProperties("Pattern",$pattern);
 				$pageContent = Array (
-					PATTERNNAME => $pattern->getPatternName($this->pattern),
-					IMGFILENAME => $pattern->getImgFileName($this->pattern),
-					CAPTION => $pattern->getCaption($this->pattern),
-					SHORTTEXT => $pattern->getShortText($this->pattern),
-					LONGTEXT => $pattern->getLongText($this->pattern),
+					PATTERNNAME => $pattern->getName($this->pattern),
+					IMGFILENAME => $pattern->getPicture()->getFileName($this->pattern),
+					CAPTION => $pattern->getPicture->getCaption($this->pattern),
+					SHORTTEXT => $pattern->getShortDescription($this->pattern),
+					LONGTEXT => $pattern->getLongDescrfiption($this->pattern),
 					SIMILARPATTERNS => $pattern->getSimilarPatterns($this->pattern)
 				);				
 			break;
