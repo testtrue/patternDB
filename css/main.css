@@ -1,6 +1,5 @@
 body {
-    padding-top: 52px;
-	background-color: rgba(51, 102, 255, 0.4);
+  padding-top: 60px;
 }
 
 main {
@@ -43,9 +42,15 @@ img {
 	margin-bottom: 20px;
 }
 
-
-
 .description {
 	height: 150px;
 	overflow: hidden;
+}
+
+.pattern__image {
+    margin-bottom: 25px;
+}
+
+.footer {
+    margin-bottom: 0;
 }

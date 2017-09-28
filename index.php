@@ -19,11 +19,11 @@ switch ($action) {
     case "show":
         $content .= file_get_contents(BASEPATH . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'Show.html');
         break;
-	case "startpage":
-        $content .= file_get_contents(BASEPATH . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'startpage.html');
+    case "impressum":
+        $content .= file_get_contents(BASEPATH . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'impressum.html');
         break;
     default:
-        $content .= "Hier folgt die Startseite...";
+        $content .= file_get_contents(BASEPATH . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'startpage.html');
 }
 
 /* * *************************
@@ -34,6 +34,7 @@ $pageDataArray = [
     'baseUrl' => BASEURL,
     'title' => $title,
     'content' => $content,
+    'year' => date('Y')
 ];
 
 /*
