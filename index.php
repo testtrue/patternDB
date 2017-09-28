@@ -31,6 +31,7 @@ $pageDataArray = [
     'baseUrl' => BASEURL,
     'title' => $title,
     'content' => $content,
+    'year' => date('Y')
 ];
 
 /*
@@ -40,4 +41,3 @@ $pageDataArray = [
  */
 $content = $page->parseTemplate('templates/index.html', $pageDataArray);
 echo $content;
-//herr robrahn fork test
