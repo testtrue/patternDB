@@ -6,12 +6,20 @@
  * Time: 11:45
  */
 
-class PatternType
+class Patterntype
 {
     /**
      * @var int
      */
     private $idPatternType;
+
+    /**
+     * @param int $idPatternType
+     */
+    public function setIdPatternType(int $idPatternType)
+    {
+        $this->idPatternType = $idPatternType;
+    }
 
     /**
      * @var string

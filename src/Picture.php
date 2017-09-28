@@ -9,9 +9,17 @@ class Picture
     private $idPicture;
 
     /**
+     * @param int $idPicture
+     */
+    public function setIdPicture(int $idPicture)
+    {
+        $this->idPicture = $idPicture;
+    }
+
+    /**
     * @var string
     */
-    private $filepath;
+    private $filename;
 
     /**
     * @var string
@@ -29,17 +37,17 @@ class Picture
     /**
      * @return string
      */
-    public function getFilepath(): string
+    public function getFilename(): string
     {
-        return $this->filepath;
+        return $this->filename;
     }
 
     /**
-     * @param string $filepath
+     * @param string $filename
      */
-    public function setFilepath(string $filepath)
+    public function setFilename(string $filename)
     {
-        $this->filepath = $filepath;
+        $this->filename = $filename;
     }
 
     /**
