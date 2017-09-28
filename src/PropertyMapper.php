@@ -19,14 +19,12 @@ class PropertyMapper
     {
         $obj = new $classname();
         $table = strtolower($classname);
-        $result = $this->db->executeQuery("SELECT * FROM $table WHERE $id")->fetch_assoc();
+        $result = $this->db->executeQuery("SELECT * FROM $table WHERE id_$table = $id")->fetch_assoc();
         foreach ($result as $key => $value) {
             $setter = "set" . $this::underscoredToUpperCamelCase($key);
             $prefix = substr($key, 0, 3);
             if ($prefix === "id_") {
                 $tablename = substr($key, 3);
-                echo $tablename. "\n";
-                echo $table."\n";
                 if ($tablename === $table) {
                     $obj->$setter($value);
                     continue;
