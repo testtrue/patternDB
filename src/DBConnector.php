@@ -13,12 +13,13 @@ class DBConnector
     private $db;
 
     //The conn variable holds the activ connection to the Database.
-    private static $conn;
+	private $conn = null;
+	private static $me = null;
 
     /**
      * The Constructor creates the activ connection to the Database and tests the connection, if it fails it will output a error message.
      **/
-    private function __construct()
+    protected function __construct()
     {
         $dbConfig = require_once(BASEPATH . DIRECTORY_SEPARATOR . "config" . DIRECTORY_SEPARATOR . "config.php");
         $this->url = $dbConfig["host"];
@@ -26,10 +27,10 @@ class DBConnector
         $this->pw = $dbConfig["password"];
         $this->db = $dbConfig["db"];
 
-        self::$conn = mysqli_connect($this->url, $this->user, $this->pw, $this->db);
+        $this->conn = mysqli_connect($this->url, $this->user, $this->pw, $this->db);
 
-        if (self::$conn->connect_error) {
-            die("Connection failed: " . self::$conn->connect_error);
+        if ($this->conn->connect_error) {
+            die("Connection failed: " . $this->conn->connect_error);
         }
     }
 
@@ -39,11 +40,10 @@ class DBConnector
      **/
     public static function getInstance()
     {
-		$conn = self::$conn;
-        if ($conn === null) {
-            $conn = new DBConnector();
+        if (self::$me === null) {
+            self::$me = new DBConnector();
         }
-        return $conn;
+        return self::$me;
     }
 
     //This function will be called by the Garbagecollector and will close the connection.
@@ -59,13 +59,13 @@ class DBConnector
      **/
     public function executeQuery($query)
     {
-        return self::$conn->query(mysqli_real_escape_string(self::$conn, $query));
+        return $this->conn->query(mysqli_real_escape_string($this->conn, $query));
     }
 
     //This function closes the Connection.
     public function closeConnection()
     {
-        self::$conn->close();
+        $this->conn->close();
     }
 
     //This function is to prevent to create another instance of the DBConnector, if someone trys to clone the instance it will fail.
