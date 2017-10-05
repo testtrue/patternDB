@@ -18,7 +18,7 @@ class DBConnector
     /**
      * The Constructor creates the activ connection to the Database and tests the connection, if it fails it will output a error message.
      **/
-    public function __construct()
+    private function __construct()
     {
         $dbConfig = require_once(BASEPATH . DIRECTORY_SEPARATOR . "config" . DIRECTORY_SEPARATOR . "config.php");
         $this->url = $dbConfig["host"];
@@ -39,10 +39,11 @@ class DBConnector
      **/
     public static function getInstance()
     {
-        if (self::$conn === null) {
-            self::$conn = new self;
+		$conn = self::$conn;
+        if ($conn === null) {
+            $conn = new DBConnector();
         }
-        return self::$conn;
+        return $conn;
     }
 
     //This function will be called by the Garbagecollector and will close the connection.

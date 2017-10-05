@@ -12,7 +12,7 @@ class PropertyMapper
 
     public function __construct()
     {
-        $this->db = new DBConnector();
+        $this->db = DBConnector::getInstance();
     }
 
     public function mapProperties($classname, $id)
